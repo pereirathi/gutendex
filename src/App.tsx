@@ -2,7 +2,7 @@ import { Global, ThemeProvider } from '@emotion/react'
 import { GlobalStyles } from './styles/globals'
 import emotionTheme from './styles/theme'
 
-function App() {
+export function App() {
   return (
     <>
       <ThemeProvider theme={{ ...emotionTheme }}>
@@ -12,5 +12,3 @@ function App() {
     </>
   )
 }
-
-export default App

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
+import { App } from './App.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Create a client for providing data to our app
