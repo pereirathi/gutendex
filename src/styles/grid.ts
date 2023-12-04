@@ -34,7 +34,6 @@ export const gridColumn = (mobileColumn: string, deskColumn: string) => {
   return `
   grid-column: ${deskColumn};
 
-    
   @media (max-width: 1023px) {
     grid-column: ${mobileColumn};
   }

@@ -4,11 +4,11 @@ import { App } from './App.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
 // Create a client for providing data to our app
-const client = new QueryClient()
+const queryClient = new QueryClient()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <QueryClientProvider client={client}>
+    <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
   </React.StrictMode>,

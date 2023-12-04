@@ -15,7 +15,6 @@ export const GlobalStyles = css`
     background: #fff;
     height: 100%;
     min-height: 100%;
-    font: 'Roboto', Roboto, sans-serif;
   }
 
   #app {

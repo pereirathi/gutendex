@@ -1,4 +1,4 @@
-import { useQuery } from '@tanstack/react-query'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import axios from 'axios'
 import { API_URL } from '../services/api/baseUrl'
 
@@ -8,7 +8,7 @@ const fetchData = async () => {
 }
 
 export function useBooksData() {
-  const query = useQuery({
+  const query = useSuspenseQuery({
     queryFn: fetchData,
     queryKey: ['books-data'],
   })
