@@ -1,36 +1,31 @@
-import { createContext, useContext, useState, useMemo } from 'react'
-
-interface ContextProps {
-  favorites: boolean
-  attributes: string
-  setFavorites: (value: string) => void
-  setAttributes: (value: string) => void
-}
-
-// const INITIAL_VALUE = {}
-
-const BooksContext = createContext<ContextProps>({} as ContextProps)
+import { createContext, useContext, useState, useCallback } from 'react'
+import { IResult } from '../types/types'
 
 interface BooksProviderProps {
   children: React.ReactNode
 }
+interface ContextProps {
+  bookDetails: IResult
+  handleSetBookDetails: (newBookDetails: IResult) => void
+}
+const INITIAL_VALUE = {} as IResult
+
+const BooksContext = createContext({} as ContextProps)
 
 export function BooksProvider({ children }: BooksProviderProps) {
-  const [favorites, setFavorites] = useState('')
-  const [attributes, setAttributes] = useState('')
+  const [bookDetails, setBookDetails] = useState(INITIAL_VALUE)
 
-  const booksProviderValue = useMemo(
-    () => ({
-      favorites,
-      attributes,
-      setFavorites,
-      setAttributes,
-    }),
-    [attributes, setAttributes, favorites, setFavorites],
-  )
+  const handleSetBookDetails = useCallback((newBookDetails: IResult) => {
+    setBookDetails((state) => ({ ...state, ...newBookDetails }))
+  }, [])
 
   return (
-    <BooksContext.Provider value={booksProviderValue}>
+    <BooksContext.Provider
+      value={{
+        bookDetails,
+        handleSetBookDetails,
+      }}
+    >
       {children}
     </BooksContext.Provider>
   )
