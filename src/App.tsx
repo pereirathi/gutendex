@@ -1,22 +1,30 @@
 import { Global, ThemeProvider } from '@emotion/react'
 import { BrowserRouter } from 'react-router-dom'
+import { useQueryErrorResetBoundary } from '@tanstack/react-query'
 import { GlobalStyles } from './styles/globals'
-import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary'
 import { AppRoutes } from './services/routes/AppRoutes'
 import { GlobalContext } from './context/GlobalContext'
+import { ErrorBoundary } from './components/ErrorBoundary/ErrorBoundary'
+import { ErrorBoundary as ErrorBoundaryWrapper } from 'react-error-boundary'
 
 import emotionTheme from './styles/theme'
 
 export function App() {
+  const { reset } = useQueryErrorResetBoundary()
   return (
     <>
       <GlobalContext>
         <ThemeProvider theme={{ ...emotionTheme }}>
           <Global styles={GlobalStyles} />
           <BrowserRouter>
-            <ErrorBoundary>
+            <ErrorBoundaryWrapper
+              onReset={reset}
+              fallbackRender={({ resetErrorBoundary }) => (
+                <ErrorBoundary resetErrorBoundary={resetErrorBoundary} />
+              )}
+            >
               <AppRoutes />
-            </ErrorBoundary>
+            </ErrorBoundaryWrapper>
           </BrowserRouter>
         </ThemeProvider>
       </GlobalContext>

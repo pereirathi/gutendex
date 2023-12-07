@@ -12,7 +12,7 @@ export const GlobalStyles = css`
   }
 
   body {
-    background: #fff;
+    background: #d3d3d3;
     height: 100%;
     min-height: 100%;
   }

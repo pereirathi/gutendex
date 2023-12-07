@@ -24,8 +24,8 @@ export interface IBooks {
   id: number
   title: string
   authors: IAuthor[]
-  translators: IAuthor[]
   subjects: string[]
+  translators: IAuthor[]
   bookshelves: string[]
   languages: string[]
   copyright: boolean

@@ -1,4 +1,5 @@
 import { forwardRef } from 'react'
+import * as S from './styles'
 
 interface IinputProps {
   value?: string
@@ -10,14 +11,15 @@ const Search = forwardRef<HTMLInputElement, IinputProps>((props, ref) => {
   const { value, placeholder, onChange } = props
 
   return (
-    <div className="search-bar">
-      <input
+    <S.InputWrapper>
+      <S.Input
+        type="text"
         ref={ref}
         value={value}
         onChange={onChange}
         placeholder={placeholder}
       />
-    </div>
+    </S.InputWrapper>
   )
 })
 Search.displayName = 'Search'

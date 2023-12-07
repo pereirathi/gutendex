@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback } from 'react'
-import { IResult } from '../types/types'
+import { IResult } from '../services/api/types'
 
 interface BooksProviderProps {
   children: React.ReactNode

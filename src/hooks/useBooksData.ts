@@ -1,5 +1,6 @@
-import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
 import axios from 'axios'
+import { useSuspenseInfiniteQuery } from '@tanstack/react-query'
+
 import { API_URL } from '../services/api/baseUrl'
 
 const fetchBooks = async (query = '', pageParam = 1) => {
