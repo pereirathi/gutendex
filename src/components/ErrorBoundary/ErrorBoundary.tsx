@@ -1,9 +1,22 @@
-import { ReactNode } from 'react'
-
+import { ERROR_BOUNDARY as dict } from '../../services/dict/appTexts'
+import notFoundImg from '../../assets/wrong-img.png'
+import { Button } from '../Button/Button'
+import * as S from './styles'
 interface ErrorBoundaryProps {
-  children: ReactNode
+  resetErrorBoundary: () => void
 }
 
-export const ErrorBoundary = ({ children }: ErrorBoundaryProps) => {
-  return <>{children}</>
+export const ErrorBoundary = ({ resetErrorBoundary }: ErrorBoundaryProps) => {
+  return (
+    <S.ErrorBoundaryContainer>
+      <S.ErrorBoundaryDescription>
+        {dict.errorBoundaryDescription}
+      </S.ErrorBoundaryDescription>
+      <Button onClick={() => resetErrorBoundary()}> {dict.tryAgain} </Button>
+      <S.ErrorBoundaryImg
+        src={notFoundImg}
+        alt="not-found-img"
+      ></S.ErrorBoundaryImg>
+    </S.ErrorBoundaryContainer>
+  )
 }
