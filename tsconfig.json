@@ -5,7 +5,8 @@
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
-    "baseUrl": ".",
+    "jsxImportSource": "@emotion/react",
+    "baseUrl": "src/",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -25,11 +26,12 @@
       "@api/*": ["services/api/*"],
       "@components/*": ["components/*"],
       "@pages/*": ["pages/*"],
-      "@styles/*": ["./styles/*"],
+      "@assets/*": ["assets/*"],
+      "@styles/*": ["styles/*"],
       "@hooks/*": ["hooks/*"],
       "@services/*": ["services/*"],
+      "context/*": ["context/*"],
     }
   },
-  "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
