@@ -95,7 +95,15 @@ I created 3 main tests:
 - Typescript
 - Emotion
 - React Router DOM
-- Eslint
+- Eslint + prettier plugin
 - Vitest
 - Cypress
 - Node (LTS)
+
+
+## Miscellaneous
+
+Project visual flow
+
+
+![flow](./src/assets/flow.png)
