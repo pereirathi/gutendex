@@ -9,9 +9,12 @@ import * as S from './styles'
 export const NotFound = () => {
   const navigate = useNavigate()
   return (
-    <S.NotFoundContainer>
+    <S.NotFoundContainer aria-label="not found">
       <S.NotFoundIcon src={notFoundIcon} alt="not-found-icon"></S.NotFoundIcon>
-      <S.NotfoundDescription data-testid="not-found">
+      <S.NotfoundDescription
+        aria-label="not found book or page"
+        data-testid="not-found"
+      >
         {dict.notfoundDescription}
       </S.NotfoundDescription>
       <S.NotFoundImg src={notFoundImg} alt="not-found-img"></S.NotFoundImg>

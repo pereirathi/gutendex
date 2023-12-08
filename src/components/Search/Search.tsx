@@ -11,7 +11,7 @@ const Search = forwardRef<HTMLInputElement, IinputProps>((props, ref) => {
   const { value, placeholder, onChange } = props
 
   return (
-    <S.InputWrapper>
+    <S.InputWrapper aria-label="search">
       <S.Input
         data-testid="search-input"
         ref={ref}
@@ -20,6 +20,7 @@ const Search = forwardRef<HTMLInputElement, IinputProps>((props, ref) => {
         value={value}
         onChange={onChange}
         placeholder={placeholder}
+        aria-description="search books will appear below"
       />
     </S.InputWrapper>
   )

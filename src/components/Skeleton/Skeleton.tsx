@@ -10,7 +10,7 @@ export const Skeleton = ({ numberOfCards, speed }: SkeletonProps) => {
   const cardsSkeleton = new Array(numberOfCards).fill('')
 
   return (
-    <S.SkeletonContainer>
+    <S.SkeletonContainer aria-label="loading">
       {cardsSkeleton.map((_, index) => (
         <S.SummaryCard
           id={`${numberOfCards}-${speed}-${index}`}

@@ -19,7 +19,7 @@ export const BookDetails = () => {
       return (
         <>
           <BookCard showDetails booksData={filteredBook} />
-          <Button onClick={() => navigate('/')}>
+          <Button aria-label="back to home" onClick={() => navigate('/')}>
             {' '}
             {genericDict.backToHome}{' '}
           </Button>
