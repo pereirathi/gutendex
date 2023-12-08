@@ -13,7 +13,15 @@ export const NotFound = () => {
       <S.NotFoundIcon src={notFoundIcon} alt="not-found-icon"></S.NotFoundIcon>
       <S.NotfoundDescription>{dict.notfoundDescription}</S.NotfoundDescription>
       <S.NotFoundImg src={notFoundImg} alt="not-found-img"></S.NotFoundImg>
-      <Button onClick={() => navigate('/')}> {dict.backToHome} </Button>
+      <Button
+        onClick={() => {
+          navigate('/')
+          navigate(0)
+        }}
+      >
+        {' '}
+        {dict.backToHome}{' '}
+      </Button>
     </S.NotFoundContainer>
   )
 }

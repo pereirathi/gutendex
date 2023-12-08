@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { theme } from '../../styles/theme'
 
 export const NotFoundContainer = styled.div`
   display: flex;
@@ -7,7 +8,7 @@ export const NotFoundContainer = styled.div`
   justify-content: center;
 `
 export const NotFoundImg = styled.img`
-  margin: 16px;
+  margin: ${theme.sizes.Space3X};
 `
 
 export const NotfoundDescription = styled.p`
@@ -15,7 +16,7 @@ export const NotfoundDescription = styled.p`
   font-weight: 700;
 `
 export const NotFoundIcon = styled.img`
-  margin: 16px;
+  margin: ${theme.sizes.Space3X};
   width: 60px;
   height: 60px;
 `

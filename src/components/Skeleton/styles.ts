@@ -1,27 +1,23 @@
 import styled from '@emotion/styled'
+import { theme } from '../../styles/theme'
+
+export const SkeletonContainer = styled.div`
+  display: flex;
+  width: 96%;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: ${theme.sizes.Space3X};
+`
 
 export const SummaryCard = styled.div`
-  box-shadow: 0px 0px 4px rgb(0 0 0 / 16%);
+  width: 200px;
+  min-height: 220px;
+  min-height: 240px;
+  border-radius: 10px;
+  margin: ${theme.sizes.Space3X};
+  padding: ${theme.sizes.Space3X};
+  background-color: ${theme.colors.White};
   box-sizing: border-box;
-  background-color: #fff;
-  width: 180px;
-  height: 220px;
-  border-radius: 5px;
-  margin: 16px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  @media (min-width: 426px) and (max-width: 1024px) {
-    padding: 8px 10px;
-    height: 130px;
-  }
-
-  @media (max-width: 425px) {
-    min-width: 222px;
-    height: 134px;
-  }
-
-  background-color: '#fff';
+  box-shadow: 0px 0px 4px rgb(0 0 0 / 16%);
 `

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled'
+import { theme } from '../../styles/theme'
 
 export const ErrorBoundaryContainer = styled.div`
   display: flex;
@@ -7,11 +8,11 @@ export const ErrorBoundaryContainer = styled.div`
   justify-content: center;
 `
 export const ErrorBoundaryImg = styled.img`
-  margin-top: 32px;
+  margin-top: ${theme.sizes.Space5X};
 `
 
 export const ErrorBoundaryDescription = styled.p`
-  margin: 32px;
+  margin: ${theme.sizes.Space5X};
   font-size: 24px;
   font-weight: 900;
 `

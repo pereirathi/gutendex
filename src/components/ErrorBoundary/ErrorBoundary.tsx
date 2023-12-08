@@ -1,7 +1,9 @@
-import { ERROR_BOUNDARY as dict } from '../../services/dict/appTexts'
 import notFoundImg from '../../assets/wrong-img.png'
-import { Button } from '../Button/Button'
+import { Button } from 'components/Button/Button'
+import { ERROR_BOUNDARY as dict } from 'services/dict/appTexts'
+
 import * as S from './styles'
+
 interface ErrorBoundaryProps {
   resetErrorBoundary: () => void
 }

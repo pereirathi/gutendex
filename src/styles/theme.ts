@@ -1,4 +1,12 @@
-const theme = {
+const colors = {
+  White: '#FFFFFF',
+  Black: '#000000',
+  GrayLight: '#e6e6e6',
+  GrayMedium: '#ccc',
+  GrayDark: '#A9A9A9',
+}
+
+const sizes = {
   Space1X: '4px',
   Space2X: '8px',
   Space3X: '16px',
@@ -11,7 +19,7 @@ const theme = {
   Space10X: '80px',
 }
 
-type Theme = typeof theme
-
-export type { Theme }
-export default theme
+export const theme = {
+  sizes,
+  colors,
+}

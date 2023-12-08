@@ -1,11 +1,12 @@
 import styled from '@emotion/styled'
+import { theme } from '../../styles/theme'
 
 export const InputWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: center;
-  margin: 16px 0;
+  margin: ${theme.sizes.Space3X}; 0;
 `
 
 export const Input = styled.input`
@@ -14,16 +15,16 @@ export const Input = styled.input`
   box-sizing: border-box;
   appearance: none;
   border-radius: 48px;
-  border: 1px solid #e6e6e6;
+  border: 1px solid ${theme.colors.GrayLight};
   outline: none;
-  color: $#778899;
-  padding-left: 16px;
-  font-size: 16px;
+  color: ${theme.colors.Black};
+  padding-left: ${theme.sizes.Space3X};
+  font-size: ${theme.sizes.Space3X};
 
   &:focus {
-    border: 1px solid #a9a9a9;
+    border: 1px solid ${theme.colors.GrayDark};
   }
   &::placeholder {
-    color: #ccc;
+    color: ${theme.colors.GrayMedium};
   }
 `

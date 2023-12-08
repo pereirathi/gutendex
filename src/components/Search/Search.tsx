@@ -13,8 +13,9 @@ const Search = forwardRef<HTMLInputElement, IinputProps>((props, ref) => {
   return (
     <S.InputWrapper>
       <S.Input
-        type="text"
         ref={ref}
+        type="text"
+        name="search"
         value={value}
         onChange={onChange}
         placeholder={placeholder}

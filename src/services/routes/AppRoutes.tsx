@@ -8,7 +8,7 @@ import { Skeleton } from '../../components/Skeleton/Skeleton'
 
 export function AppRoutes() {
   return (
-    <Suspense fallback={<Skeleton numberOfCards={25} speed={2} />}>
+    <Suspense fallback={<Skeleton numberOfCards={24} speed={2} />}>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/book-details/:bookId" element={<BookDetails />} />

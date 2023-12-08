@@ -15,6 +15,9 @@ export const GlobalStyles = css`
     background: #d3d3d3;
     height: 100%;
     min-height: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
   }
 
   #app {
