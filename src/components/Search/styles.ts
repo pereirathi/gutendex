@@ -19,6 +19,7 @@ export const Input = styled.input`
   outline: none;
   color: ${theme.colors.Black};
   padding-left: ${theme.sizes.Space3X};
+  padding-right: ${theme.sizes.Space2X};
   font-size: ${theme.sizes.Space3X};
 
   &:focus {

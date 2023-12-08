@@ -33,13 +33,13 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
     <NotFound />
   ) : (
     booksData?.results.map((book) => (
-      <S.WrapperBookCard key={book.id}>
+      <S.WrapperBookCard key={book.id} data-testid="book-card">
         <ConditionalLink bookDetails={book}>
           <S.BookImg
             src={book.formats['image/jpeg'] || notFoundIcon}
             alt={`images-{book.id}`}
           />
-          <S.BookTitle>{`${
+          <S.BookTitle data-testid="book-title">{`${
             book.title.slice(0, titleCharacterLimit) +
             (book.title.length > titleCharacterLimit ? '...' : '')
           }`}</S.BookTitle>
@@ -64,11 +64,11 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
               </S.BookContent>
               <S.BookContent>
                 {`${dict.bookBookshelves}${book.bookshelves.map(
-                  (sub: string) => sub,
+                  (sub: string) => sub || 'none',
                 )}`}
               </S.BookContent>
-              <S.BookContent>
-                {`${dict.bookSubjects}$: ${book?.subjects.map(
+              <S.BookContent data-testid="book-subject">
+                {`${dict.bookSubjects}${book?.subjects.map(
                   (sub: string) =>
                     sub.slice(0, textCharacterLimit) +
                     (book.title.length > textCharacterLimit ? '...' : ''),

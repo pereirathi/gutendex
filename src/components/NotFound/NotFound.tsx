@@ -11,7 +11,9 @@ export const NotFound = () => {
   return (
     <S.NotFoundContainer>
       <S.NotFoundIcon src={notFoundIcon} alt="not-found-icon"></S.NotFoundIcon>
-      <S.NotfoundDescription>{dict.notfoundDescription}</S.NotfoundDescription>
+      <S.NotfoundDescription data-testid="not-found">
+        {dict.notfoundDescription}
+      </S.NotfoundDescription>
       <S.NotFoundImg src={notFoundImg} alt="not-found-img"></S.NotFoundImg>
       <Button
         onClick={() => {
