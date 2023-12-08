@@ -62,7 +62,7 @@ Here I didn't do anything special to improve the performance but in tests on the
 
 PS: I was just concern to not overuse useEffect, but I didn't use anything like useCallback, memo or useMemo.
 
-![test](./src/assets/performancetest.png)
+![test-perf](./src/assets/performancetest.png)
 
 How did I test it: 
  - After build the project and run a preview; 
@@ -74,6 +74,19 @@ How did I test it:
 
 Here I would have liked to put unit tests using react-testing-library+Jest but due to 
 the deadline I chose a more general approach using E2E with cypress. 
+
+I created 3 main tests: 
+ -  for search and book details
+ -  book not found
+ -  scroll to load more books
+
+ For run cypress with CLI to see the tests running in a browser: 
+
+   ```bash
+   npx cypress open
+   ```
+
+![tests](./src/assets/e2e-tests.png)
 
 
 ## Project Technologies:

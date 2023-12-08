@@ -45,9 +45,9 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
           }`}</S.BookTitle>
           <S.BookContent>{`${dict.bookID}${book.id}`}</S.BookContent>
           <S.BookContent>
-            {`${dict.bookAuthor}${book?.authors.map(
-              (author: IAuthor) => author.name,
-            )}`}
+            {`${dict.bookAuthor}${book?.authors
+              .map((author: IAuthor) => author.name)
+              .join(', ')}`}
           </S.BookContent>
           <S.BookContent>{`${dict.bookDownloadCount}${book.download_count}`}</S.BookContent>
           {showDetails && (
