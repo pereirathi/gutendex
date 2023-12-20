@@ -6,6 +6,7 @@ import {
   useDeferredValue,
   ChangeEvent,
 } from 'react'
+import { useDebouncedValue } from 'hooks/useDebouncedValue'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import { useBooksData } from 'hooks/useBooksData'
 
@@ -18,10 +19,14 @@ import * as S from './styles'
 const Search = lazy(() => import('components/Search/Search'))
 const BookCard = lazy(() => import('components/BookCard/BookCard'))
 
+const debounceTime = 200
+
 export const Home = () => {
   const inputRef = useRef(null)
   const [book, setBook] = useState<string>('')
-  const deferredBookState = useDeferredValue(book)
+  const [debounceBook, setDebounceBook] = useDebouncedValue('', debounceTime)
+
+  const deferredBookState = useDeferredValue(debounceBook)
   const [isPending, startTransition] = useTransition()
 
   const { data, fetchNextPage, hasNextPage } = useBooksData({
@@ -30,7 +35,7 @@ export const Home = () => {
 
   const handleOnchangeSearch = (e: ChangeEvent<HTMLInputElement>) => {
     setBook(e.target.value)
-    startTransition(() => {})
+    startTransition(() => setDebounceBook(e.target.value))
   }
 
   return (
