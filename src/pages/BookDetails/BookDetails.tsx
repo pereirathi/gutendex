@@ -2,6 +2,7 @@ import { useNavigate, useLocation } from 'react-router-dom'
 import { NotFound } from 'components/NotFound/NotFound'
 import BookCard from 'components/BookCard/BookCard'
 import backIcon from '../../assets/back-icon.svg'
+import bookAnimation from '../../assets/book.gif'
 import { Button } from 'components/Button/Button'
 import {
   BOOK_DETAILS as dict,
@@ -24,12 +25,15 @@ export const BookDetails = () => {
   }
   return (
     <S.BookDetailsContainer>
-      <Button aria-label="back to home" onClick={() => navigate('/')}>
-        <S.BackIcon src={backIcon} />
-        {genericDict.backToHome}{' '}
-      </Button>
-      <S.BookDetailsPageTitle>{dict.bookDetailsTitle}</S.BookDetailsPageTitle>
-      {renderBookDetails()}
+      <S.BookDetailsHeader>
+        <Button aria-label="back to home" onClick={() => navigate('/')}>
+          <S.BackIcon src={backIcon} />
+          {genericDict.backToHome}{' '}
+        </Button>
+        <S.BookDetailsPageTitle>{dict.bookDetailsTitle}</S.BookDetailsPageTitle>
+        <S.BookAnimation src={bookAnimation} />
+      </S.BookDetailsHeader>
+      <S.BookDetailsContent>{renderBookDetails()}</S.BookDetailsContent>
     </S.BookDetailsContainer>
   )
 }

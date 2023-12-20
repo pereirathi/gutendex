@@ -7,7 +7,7 @@ export const ButtonContainer = styled.button`
   justify-content: center;
   color: ${theme.colors.Black};
   width: auto;
-  min-width: 130px;
+  min-width: 100px;
   max-width: 100%;
   font-size: 14px;
   height: 48px;
@@ -16,8 +16,11 @@ export const ButtonContainer = styled.button`
   box-shadow: none;
   box-sizing: border-box;
   border-radius: 48px;
-  padding: ${theme.sizes.Space3X} ${theme.sizes.Space5X};
+  padding: ${theme.sizes.Space3X} ${theme.sizes.Space4X};
   margin: ${theme.sizes.Space2X} 0;
   font-weight: 700;
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    padding: ${theme.sizes.Space1X} ${theme.sizes.Space2X};
+  }
 `

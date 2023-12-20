@@ -1,12 +1,16 @@
 import styled from '@emotion/styled'
 import { theme } from '../../styles/theme'
 
-export const WrapperBookCard = styled.div`
+type ShowDetailsProps = {
+  showDetails?: boolean | undefined
+}
+
+export const WrapperBookCard = styled('div')<ShowDetailsProps>`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: ${theme.colors.White};
-  width: 200px;
+  width: ${(props) => (props.showDetails ? '400px' : '200px')};
   min-height: 240px;
   max-height: 600px;
   border-radius: 10px;
@@ -20,6 +24,7 @@ export const WrapperBookCard = styled.div`
   }
   @media (max-width: 768px) {
     margin-top: 0;
+    width: ${(props) => props.showDetails && '250px'};
   }
 `
 export const BookTitle = styled.p`
@@ -27,6 +32,7 @@ export const BookTitle = styled.p`
   font-size: 16px;
   font-weight: 900;
   line-height: 20px;
+  margin-top: ${theme.sizes.Space1X};
 
   @media (max-width: 768px) {
     font-size: 14px;
@@ -41,15 +47,18 @@ export const BookContent = styled.p`
   margin-top: ${theme.sizes.Space1X};
   @media (max-width: 768px) {
     font-size: 10px;
-    font-weight: 4s00;
+    font-weight: 400;
   }
 `
 
-export const FavoriteBookButton = styled.button``
+export const FavoriteBookButton = styled.button`
+  border: none;
+  background-color: transparent;
+`
 
 export const FavoriteIcon = styled.img`
-  width: 28px;
-  height: 28px;
+  width: 33px;
+  height: 33px;
 `
 
 export const BookCardImgSection = styled.div`

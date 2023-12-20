@@ -1,5 +1,5 @@
 export const GENERIC_TEXT = {
-  backToHome: 'Back home',
+  backToHome: 'Back',
 }
 
 export const ERROR_BOUNDARY = {

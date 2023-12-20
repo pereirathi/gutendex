@@ -34,8 +34,12 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
     <NotFound />
   ) : (
     booksData?.results.map((book) => (
-      <S.WrapperBookCard key={book.id} data-testid="book-card">
-        <LinkWrapper bookDetails={book}>
+      <S.WrapperBookCard
+        key={book.id}
+        data-testid="book-card"
+        showDetails={showDetails}
+      >
+        <LinkWrapper bookDetails={book} isToShowDetails={showDetails}>
           <S.BookCardImgSection>
             <S.BookImg
               src={book.formats['image/jpeg'] || notFoundIcon}
@@ -46,7 +50,7 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
               onClick={handleToggleFavourite}
             >
               <S.FavoriteIcon
-                src={isFavourited ? favoriteIcon : emptyFavoriteIcon}
+                src={isFavourited ? emptyFavoriteIcon : favoriteIcon}
               />
             </S.FavoriteBookButton>
           </S.BookCardImgSection>
