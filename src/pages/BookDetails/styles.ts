@@ -14,3 +14,9 @@ export const BookDetailsPageTitle = styled.h2`
   margin: ${theme.sizes.Space3X} 0;
   color: ${theme.colors.Black};
 `
+
+export const BackIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-right: ${theme.sizes.Space1X};
+`

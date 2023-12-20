@@ -45,6 +45,18 @@ export const BookContent = styled.p`
   }
 `
 
+export const FavoriteBookButton = styled.button``
+
+export const FavoriteIcon = styled.img`
+  width: 28px;
+  height: 28px;
+`
+
+export const BookCardImgSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
+
 export const BookImg = styled.img`
   margin-bottom: ${theme.sizes.Space1X};
   width: 66px;

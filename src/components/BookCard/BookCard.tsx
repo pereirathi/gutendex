@@ -1,5 +1,8 @@
-import { Link } from 'react-router-dom'
+import { LinkWrapper } from 'components/LinkWrapper/LinkWrapper'
+import { useFavorite } from 'hooks/useFavorite'
 import notFoundIcon from '../../assets/not-found-icon.svg'
+import emptyFavoriteIcon from '../../assets/favorite-empty.svg'
+import favoriteIcon from '../../assets/favorite-filled.svg'
 import { NotFound } from 'components/NotFound/NotFound'
 import { IResult, IAuthor, IBooks } from 'services/api/types'
 import { BOOKS_CARD as dict } from 'services/dict/appTexts'
@@ -19,26 +22,34 @@ interface IBookCardProps {
   booksData?: BookCard | undefined
 }
 
+const noResults = 0
+
 const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
-  const ConditionalLink = ({ bookDetails, children }: IBookCardProps) => {
-    return showDetails ? (
-      <>{children}</>
-    ) : (
-      <Link to={`/book-details/${bookDetails?.id}`} state={{ bookDetails }}>
-        {children}
-      </Link>
-    )
-  }
-  return booksData?.results.length === 0 ? (
+  const id = booksData?.results.map((book) => book.id)
+  const { isFavourited, handleToggleFavourite } = useFavorite({
+    id: String(id),
+  })
+
+  return booksData?.results.length === noResults ? (
     <NotFound />
   ) : (
     booksData?.results.map((book) => (
       <S.WrapperBookCard key={book.id} data-testid="book-card">
-        <ConditionalLink bookDetails={book}>
-          <S.BookImg
-            src={book.formats['image/jpeg'] || notFoundIcon}
-            alt={`images-{book.id}`}
-          />
+        <LinkWrapper bookDetails={book}>
+          <S.BookCardImgSection>
+            <S.BookImg
+              src={book.formats['image/jpeg'] || notFoundIcon}
+              alt={`images-{book.id}`}
+            />
+            <S.FavoriteBookButton
+              data-testid="book-favourite"
+              onClick={handleToggleFavourite}
+            >
+              <S.FavoriteIcon
+                src={isFavourited ? favoriteIcon : emptyFavoriteIcon}
+              />
+            </S.FavoriteBookButton>
+          </S.BookCardImgSection>
           <S.BookTitle data-testid="book-title">{`${
             book.title.slice(0, titleCharacterLimit) +
             (book.title.length > titleCharacterLimit ? '...' : '')
@@ -76,7 +87,7 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
               </S.BookContent>
             </>
           )}
-        </ConditionalLink>
+        </LinkWrapper>
       </S.WrapperBookCard>
     ))
   )
