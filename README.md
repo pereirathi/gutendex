@@ -1,13 +1,12 @@
 
 # Project Gutenberg - Front-End
 
-# Update: 20/21-December
+## ** Update: 21-December **
 
 - [x] Added debounce for search input;
+- [x] Added favorite feature;
 - [x] Improve book details UI/UX;
 - [x] Refactor of code structure of BookCard component for better readability;
-
-
 
 ## Overview
 
