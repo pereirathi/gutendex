@@ -2,10 +2,12 @@ import { LinkWrapper } from 'components/BookCard/components/LinkWrapper/LinkWrap
 import { BookDetailsContent } from 'components/BookCard/components/BookContent/BookDetailsContent'
 import { BookDefaultContent } from 'components/BookCard/components/BookContent/BookDefaultContent'
 import { useFavorite } from 'hooks/useFavorite'
-import notFoundIcon from '../../assets/not-found-icon.svg'
-import emptyFavoriteIcon from '../../assets/favorite-empty.svg'
-import favoriteIcon from '../../assets/favorite-filled.svg'
+
+import notFoundIcon from 'resources/not-found-icon.svg'
+import favoriteIcon from 'resources/favorite-filled.svg'
 import { NotFound } from 'components/NotFound/NotFound'
+import emptyFavoriteIcon from 'resources/favorite-empty.svg'
+
 import { IResult } from 'services/api/types'
 
 import * as S from './styles'

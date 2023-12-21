@@ -23,8 +23,8 @@ export const WrapperBookCard = styled('div')<ShowDetailsProps>`
     color: inherit;
   }
   @media (max-width: 768px) {
-    margin-top: 0;
-    width: ${(props) => props.showDetails && '250px'};
+    margin-top: ${(props) => (props.showDetails ? theme.sizes.Space2X : '0px')};
+    width: ${(props) => props.showDetails && '300px'};
   }
 `
 export const BookTitle = styled.p`

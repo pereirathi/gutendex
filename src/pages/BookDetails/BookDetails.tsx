@@ -1,15 +1,21 @@
+import { lazy } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { NotFound } from 'components/NotFound/NotFound'
-import BookCard from 'components/BookCard/BookCard'
-import backIcon from '../../assets/back-icon.svg'
-import bookAnimation from '../../assets/book.gif'
+
 import { Button } from 'components/Button/Button'
+
+import { NotFound } from 'components/NotFound/NotFound'
+
+import backIcon from 'resources/back-icon.svg'
+import bookAnimation from 'resources/book.gif'
+
 import {
   BOOK_DETAILS as dict,
   GENERIC_TEXT as genericDict,
 } from 'services/dict/appTexts'
 
 import * as S from './styles'
+
+const BookCard = lazy(() => import('components/BookCard/BookCard'))
 
 export const BookDetails = () => {
   const navigate = useNavigate()

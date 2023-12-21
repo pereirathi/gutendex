@@ -1,5 +1,7 @@
-import notFoundImg from '../../assets/wrong-img.png'
 import { Button } from 'components/Button/Button'
+
+import notFoundImg from 'resources/wrong-img.png'
+
 import { ERROR_BOUNDARY as dict } from 'services/dict/appTexts'
 
 import * as S from './styles'

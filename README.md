@@ -1,6 +1,14 @@
 
 # Project Gutenberg - Front-End
 
+# Update: 20/21-December
+
+- [x] Added debounce for search input;
+- [x] Improve book details UI/UX;
+- [x] Refactor of code structure of BookCard component for better readability;
+
+
+
 ## Overview
 
 This React application is a showcase of books from the project Gutenberg, thats is good source of free eBooks. 
@@ -48,12 +56,12 @@ Steps to run the project locally:
 - `src`: Contains the source code of the application.
   - `src/App.tsx`: The main component that includes the routing logic and layout structure.
   - `src/components`: Reusable components such as book cards and detail views.
-  - `assets`: Static assets such as png images and SVG.
+  - `resources`: Static resources such as png images and SVG.
   - `src/services`: Utility like api, dictionary-texts helper functions and route.
   - `src/hooks`: Custom hooks for shared logic.
   - `src/styles`: Global styles and reusables.
 - `cypress`: E2E folder, with specs.   
-- `public`: Publicly accessible assets. 
+- `public`: Publicly accessible resources. 
 
 
 ## Performance
@@ -62,7 +70,7 @@ Here I didn't do anything special to improve the performance but in tests on the
 
 PS: I was just concern to not overuse useEffect, but I didn't use anything like useCallback, memo or useMemo.
 
-![test-perf](./src/assets/performancetest.png)
+![test-perf](./src/resources/performancetest.png)
 
 How did I test it: 
  - After build the project and run a preview; 
@@ -86,7 +94,7 @@ I created 3 main tests:
    npx cypress open
    ```
 
-![tests](./src/assets/e2e-tests.png)
+![tests](./src/resources/e2e-tests.png)
 
 
 ## Project Technologies:
@@ -106,4 +114,4 @@ I created 3 main tests:
 Project visual flow
 
 
-![flow](./src/assets/flow.png)
+![flow](./src/resources/flow.png)

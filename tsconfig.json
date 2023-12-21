@@ -6,6 +6,7 @@
     "module": "ESNext",
     "skipLibCheck": true,
     "jsxImportSource": "@emotion/react",
+    "baseUrl": "",
 
     /* Bundler mode */
     "moduleResolution": "bundler",
@@ -24,10 +25,10 @@
     "paths": {
       "hooks/*": ["./src/hooks/*"],
       "pages/*": ["./src/pages/*"],
-      "assets/*": ["./src/assets/*"],
       "styles/*": ["./src/styles/*"],
       "api/*": ["./src/services/api/*"],
       "services/*": ["./src/services/*"],
+      "resources/*": ["./src/resources/*"],
       "components/*": ["./src/components/*"],
     }
   },
