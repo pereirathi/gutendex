@@ -1,25 +1,23 @@
-import { useState } from 'react'
-
-export const useFavorite = ({ id }: { id: () => string }) => {
-  const [storageBookItem, setStorageBookItem] = useState(() =>
-    JSON.parse(localStorage.getItem('favourites') || '[]'),
+export const useFavorite = () => {
+  const favoritesList = JSON.parse(
+    localStorage.getItem('favorites-books') || '[]',
   )
+  const getFavoritesBooks = () =>
+    JSON.parse(localStorage.getItem('favorites-books') || '[]')
 
-  const isFavourited = storageBookItem.includes(id())
+  const addBookToFavorites = ({ id }: { id: number }) => {
+    const isAlreadyFavorite = favoritesList.includes(id)
 
-  const handleToggleFavourite = () => {
-    if (!isFavourited) {
-      const newStorageItem = [...storageBookItem, id()]
-      setStorageBookItem(newStorageItem)
-      localStorage.setItem('favourites', JSON.stringify(newStorageItem))
+    if (!isAlreadyFavorite) {
+      const newBookItemId = [...favoritesList, id]
+      localStorage.setItem('favorites-books', JSON.stringify(newBookItemId))
     } else {
-      const newStorageItem = storageBookItem.filter(
-        (savedId: string) => savedId !== id(),
+      const newStorageItem = favoritesList.filter(
+        (savedId: number) => savedId !== id,
       )
-      setStorageBookItem(newStorageItem)
-      localStorage.setItem('favourites', JSON.stringify(newStorageItem))
+      localStorage.setItem('favorites-books', JSON.stringify(newStorageItem))
     }
   }
 
-  return { isFavourited, handleToggleFavourite }
+  return { getFavoritesBooks, favoritesList, addBookToFavorites }
 }

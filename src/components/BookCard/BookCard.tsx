@@ -11,6 +11,7 @@ import emptyFavoriteIcon from 'resources/favorite-empty.svg'
 import { IResult } from 'services/api/types'
 
 import * as S from './styles'
+import { useEffect, useState } from 'react'
 
 const noResults = 0
 
@@ -22,9 +23,15 @@ interface IBookCardProps {
 }
 
 const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
-  const { isFavourited, handleToggleFavourite } = useFavorite({
-    id: () => booksData?.results.map((book) => book.id).toString() || '',
-  })
+  const [isFavoriteChange, setIsFavoriteChange] = useState(false)
+  const { getFavoritesBooks, favoritesList, addBookToFavorites } = useFavorite()
+
+  useEffect(() => {
+    if (isFavoriteChange) {
+      getFavoritesBooks()
+      setIsFavoriteChange(false)
+    }
+  }, [isFavoriteChange])
 
   return booksData?.results.length === noResults ? (
     <NotFound />
@@ -35,22 +42,28 @@ const BookCard = ({ showDetails, booksData }: IBookCardProps) => {
         data-testid="book-card"
         showDetails={showDetails}
       >
-        <LinkWrapper bookDetails={book} isToShowDetails={showDetails}>
-          <S.BookCardImgSection>
-            <S.BookImg
-              src={book.formats['image/jpeg'] || notFoundIcon}
-              alt={`images-{book.id}`}
+        <S.BookCardImgSection>
+          <S.BookImg
+            src={book.formats['image/jpeg'] || notFoundIcon}
+            alt={`images-{book.id}`}
+          />
+          <S.FavoriteBookButton
+            data-testid="book-favourite"
+            onClick={() => {
+              addBookToFavorites({ id: book.id })
+              setIsFavoriteChange(true)
+            }}
+          >
+            <S.FavoriteIcon
+              src={
+                favoritesList?.includes(book.id)
+                  ? favoriteIcon
+                  : emptyFavoriteIcon
+              }
             />
-            <S.FavoriteBookButton
-              data-testid="book-favourite"
-              onClick={handleToggleFavourite}
-            >
-              <S.FavoriteIcon
-                src={isFavourited ? emptyFavoriteIcon : favoriteIcon}
-              />
-            </S.FavoriteBookButton>
-          </S.BookCardImgSection>
-
+          </S.FavoriteBookButton>
+        </S.BookCardImgSection>
+        <LinkWrapper bookDetails={book} isToShowDetails={showDetails}>
           <BookDefaultContent book={book} />
           {showDetails && <BookDetailsContent book={book} />}
         </LinkWrapper>
